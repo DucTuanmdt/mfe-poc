@@ -1,36 +1,19 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/common/Navbar";
 
-const navItems = [
-  {
-    label: "Home",
-    path: "/",
-  },
-  {
-    label: "Product",
-    path: "/product",
-  },
-  {
-    label: "User",
-    path: "/user",
-  },
-  {
-    label: "Dashboard",
-    path: "/dashboard",
-  },
-  {
-    label: "Management",
-    path: "/management",
-  },
-];
+import AppDrawer from "@/components/common/AppDrawer";
+import { IFDrawerMenuItem } from "@/model/commonModel";
 
-function PrimaryLayout() {
+type Props = {
+  menuList: IFDrawerMenuItem[];
+};
+
+const PrimaryLayout: React.FC<Props> = ({ menuList }) => {
   return (
-    <>
-      <Navbar items={navItems} />
+    <AppDrawer menuList={menuList}>
       <Outlet />
-    </>
+    </AppDrawer>
   );
-}
+};
 
 export default PrimaryLayout;

@@ -22,5 +22,10 @@ module.exports = {
       singleton: true,
       requiredVersion: deps["react-dom"],
     },
+    "@emotion/react": {
+      singleton: true,
+      requiredVersion: deps["@emotion/react"],
+    },
+    ...deps.dependencies,
   },
 };

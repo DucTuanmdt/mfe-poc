@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import ProductManagement from "./pages/ProductManagement";
 import UserManagement from "./pages/UserManagement";
+import drawerMenuList from "./config/drawerMenuList";
 
 const App: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const App: React.FC = () => {
       <CssBaseline />
 
       <Routes>
-        <Route path="/" element={<PrimaryLayout />}>
+        <Route path="/" element={<PrimaryLayout menuList={drawerMenuList} />}>
           <Route index element={<Home />} />
           <Route path="/product" element={<ProductManagement />} />
           <Route path="/user" element={<UserManagement />} />

@@ -1,28 +1,17 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
-import NavbarPortal from "../components/remotes/NavbarPortal";
+import DrawerPortal from "@/components/remotes/DrawerPortal";
 
-const navItems = [
-  {
-    label: "Home",
-    path: "/",
-  },
-  {
-    label: "Product",
-    path: "/product",
-  },
-  {
-    label: "Management",
-    path: "/management",
-  },
-];
+type Props = {
+  menuList?: any[];
+};
 
-function PrimaryLayout() {
+const PrimaryLayout: React.FC<Props> = ({ menuList }) => {
   return (
-    <>
-      <NavbarPortal items={navItems} />
+    <DrawerPortal menuList={menuList} defaultOpen>
       <Outlet />
-    </>
+    </DrawerPortal>
   );
-}
+};
 
 export default PrimaryLayout;

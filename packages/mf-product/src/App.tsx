@@ -9,6 +9,7 @@ import PrimaryLayout from "./layout/PrimaryLayout";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Pricing from "./pages/Pricing";
+import drawerMenuList from "./config/drawerMenuList";
 
 const App: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const App: React.FC = () => {
       <CssBaseline />
 
       <Routes>
-        <Route path="/" element={<PrimaryLayout />}>
+        <Route path="/" element={<PrimaryLayout menuList={drawerMenuList} />}>
           <Route index element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="*" element={<NotFound />} />

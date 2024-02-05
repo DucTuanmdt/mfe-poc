@@ -20,13 +20,11 @@ const fallbackUI = (
 );
 
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <ErrorBoundary fallback={fallbackUI}>
-          <App />
-        </ErrorBoundary>
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <Provider store={store}>
+      <ErrorBoundary fallback={fallbackUI}>
+        <App />
+      </ErrorBoundary>
+    </Provider>
+  </BrowserRouter>
 );
