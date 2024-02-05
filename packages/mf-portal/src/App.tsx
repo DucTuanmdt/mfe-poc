@@ -1,20 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
-import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
+import { CssBaseline } from "@mui/material";
 
+import drawerMenuList from "./config/drawerMenuList";
 import theme from "./config/theme";
+import { useAppDispatch } from "./hooks/useAppDispatch";
 import PrimaryLayout from "./layout/PrimaryLayout";
-import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ProductManagement from "./pages/ProductManagement";
+import SignIn from "./pages/SignIn";
 import UserManagement from "./pages/UserManagement";
-import drawerMenuList from "./config/drawerMenuList";
+import { setAuthenticationInfo } from "./redux/reducers/authSlice";
+import { getAuthenticationInfo } from "./utils/authUtils";
 
 const App: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    if (currentPath.includes("sign-in")) {
+      return;
+    }
+
+    const { isAuthenticated, token, user } = getAuthenticationInfo();
+    if (isAuthenticated && user) {
+      dispatch(
+        setAuthenticationInfo({
+          token,
+          user,
+        })
+      );
+    } else {
+      navigate("/sign-in");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -27,6 +55,7 @@ const App: React.FC = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="/sign-in" element={<SignIn />} />
       </Routes>
     </ThemeProvider>
   );
