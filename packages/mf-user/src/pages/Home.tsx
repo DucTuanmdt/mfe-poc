@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(userActions.searchPayShapTransactions());
+    dispatch(userActions.searchUsers());
   }, [dispatch, request]);
 
   return (

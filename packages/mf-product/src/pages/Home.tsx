@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(productActions.searchPayShapTransactions());
+    dispatch(productActions.searchProducts());
   }, [dispatch, request]);
   return (
     <Container>

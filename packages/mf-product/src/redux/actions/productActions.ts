@@ -8,8 +8,8 @@ import {
 } from "../reducers/productSlice";
 import { productService } from "@/services";
 
-export const searchPayShapTransactions = createAsyncThunk(
-  "payshap/searchPayShapTransactions",
+export const searchProducts = createAsyncThunk(
+  "product/searchProducts",
   async (_: void, { dispatch, getState }) => {
     try {
       dispatch(productActionStart());
