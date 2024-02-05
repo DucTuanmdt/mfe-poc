@@ -7,7 +7,7 @@
     "dev": "webpack serve --open --config config/webpack.dev.js",
     "build": "ENV_PATH=prd webpack --config config/webpack.prod.js",
     "build:dev": "ENV_PATH=dev webpack --config config/webpack.prod.js",
-    "start": "source env/.env.dev && serve dist -s -p $PORT",
+    "start": "bash -c 'source env/.env.dev && serve dist -s -p $PORT'",
     "lint": "eslint ."
   },
   "dependencies": {

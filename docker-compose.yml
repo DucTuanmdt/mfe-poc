@@ -1,0 +1,18 @@
+version: "3"
+services:
+  mf-portal:
+    build: ./packages/mf-portal
+    ports:
+      - "4000:4000"
+  mf-product:
+    build: ./packages/mf-product
+    ports:
+      - "4001:4001"
+  mf-user:
+    build: ./packages/mf-user
+    ports:
+      - "4002:4002"
+  server:
+    build: ./packages/mock-server
+    ports:
+      - "4500:4500"
