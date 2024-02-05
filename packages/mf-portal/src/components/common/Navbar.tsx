@@ -11,8 +11,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import { NavLink } from "react-router-dom";
+import TokenIcon from "@mui/icons-material/Token";
+// import { NavLink } from "react-router-dom";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ items = [] }) => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <TokenIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -68,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ items = [] }) => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            MFE
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -101,15 +101,20 @@ const Navbar: React.FC<NavbarProps> = ({ items = [] }) => {
               }}
             >
               {items.map((item, index) => (
-                <NavLink to={item.path} key={index}>
+                <a href={item.path} key={index}>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{item.label}</Typography>
                   </MenuItem>
-                </NavLink>
+                </a>
+                // <NavLink to={item.path} key={index}>
+                //   <MenuItem onClick={handleCloseNavMenu}>
+                //     <Typography textAlign="center">{item.label}</Typography>
+                //   </MenuItem>
+                // </NavLink>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <TokenIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -126,18 +131,26 @@ const Navbar: React.FC<NavbarProps> = ({ items = [] }) => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            MFE
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {items.map((item, index) => (
-              <NavLink to={item.path} key={index}>
+              <a href={item.path} key={index}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {item.label}
                 </Button>
-              </NavLink>
+              </a>
+              // <NavLink to={item.path} key={index}>
+              //   <Button
+              //     onClick={handleCloseNavMenu}
+              //     sx={{ my: 2, color: "white", display: "block" }}
+              //   >
+              //     {item.label}
+              //   </Button>
+              // </NavLink>
             ))}
           </Box>
 

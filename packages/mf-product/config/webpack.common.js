@@ -29,7 +29,6 @@ module.exports = {
     new DotenvWebpack({
       path: envFilePath,
     }),
-    
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),

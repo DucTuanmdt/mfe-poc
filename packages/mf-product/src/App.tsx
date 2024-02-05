@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Routes, Route } from "react-router-dom";
 
 import { CssBaseline } from "@mui/material";
@@ -8,9 +7,8 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "./config/theme";
 import PrimaryLayout from "./layout/PrimaryLayout";
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
-import ProductManagement from "./pages/ProductManagement";
+import Pricing from "./pages/Pricing";
 
 const App: React.FC = () => {
   return (
@@ -20,8 +18,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<PrimaryLayout />}>
           <Route index element={<Home />} />
-          <Route path="/product" element={<ProductManagement />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
