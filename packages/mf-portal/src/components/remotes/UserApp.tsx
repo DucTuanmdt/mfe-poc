@@ -1,8 +1,10 @@
 import React, { Suspense, lazy } from "react";
 import { Alert } from "@mui/material";
+
 import ErrorBoundary from "../common/ErrorBoundary";
 import Loader from "../common/Loader";
-const ProductAppMF = lazy(() => import("mfProduct/ProductApp"));
+
+const UserAppMF = lazy(() => import("mfUser/UserApp"));
 
 const fallbackMessage = (
   <Alert severity="warning">
@@ -11,14 +13,14 @@ const fallbackMessage = (
   </Alert>
 );
 
-const ProductApp: React.FC = () => {
+const UserApp: React.FC = () => {
   return (
     <ErrorBoundary fallback={fallbackMessage}>
       <Suspense fallback={<Loader type="linear" />}>
-        <ProductAppMF />
+        <UserAppMF />
       </Suspense>
     </ErrorBoundary>
   );
 };
 
-export default ProductApp;
+export default UserApp;

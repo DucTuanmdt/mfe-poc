@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/common/Navbar";
+import NavbarPortal from "../components/remotes/NavbarPortal";
 
 const navItems = [
   {
@@ -7,16 +7,8 @@ const navItems = [
     path: "/",
   },
   {
-    label: "Product",
-    path: "/product",
-  },
-  {
     label: "User",
     path: "/user",
-  },
-  {
-    label: "Dashboard",
-    path: "/dashboard",
   },
   {
     label: "Management",
@@ -27,7 +19,7 @@ const navItems = [
 function PrimaryLayout() {
   return (
     <>
-      <Navbar items={navItems} />
+      <NavbarPortal items={navItems} />
       <Outlet />
     </>
   );

@@ -20,7 +20,7 @@ const devCongig = {
     },
   },
   devtool: 'source-map',
-
+  
   plugins: [new ModuleFederationPlugin(federationConfig)],
 };
 

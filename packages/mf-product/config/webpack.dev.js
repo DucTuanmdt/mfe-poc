@@ -16,6 +16,7 @@ const devCongig = {
     port: port,
     historyApiFallback: {
       index: "/index.html",
+      filename: "[name].[contenthash].js",
     },
   },
   devtool: 'source-map',

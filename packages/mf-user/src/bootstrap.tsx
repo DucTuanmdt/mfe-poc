@@ -1,16 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { Alert } from "@mui/material";
 
 import { store } from "@/redux/store";
-
 import App from "./App";
 import ErrorBoundary from "./components/common/ErrorBoundary";
-
-const rootElement = document.getElementById("__portal-root") as HTMLElement;
-const root = ReactDOM.createRoot(rootElement);
 
 const fallbackUI = (
   <Alert severity="error">
@@ -19,14 +16,24 @@ const fallbackUI = (
   </Alert>
 );
 
-root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <ErrorBoundary fallback={fallbackUI}>
-          <App />
-        </ErrorBoundary>
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>
-);
+function mount(el?: HTMLElement) {
+  let rootElement = el;
+  if (!el) {
+    rootElement = document.getElementById("__user-root") as HTMLElement;
+  }
+  const root = ReactDOM.createRoot(rootElement as HTMLElement);
+
+  root.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <Provider store={store}>
+          <ErrorBoundary fallback={fallbackUI}>
+            <App />
+          </ErrorBoundary>
+        </Provider>
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+}
+
+export { mount };

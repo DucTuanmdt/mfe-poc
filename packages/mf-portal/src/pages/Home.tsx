@@ -1,10 +1,13 @@
 import React from "react";
 import { Container } from "@mui/material";
+import ProductManagement from "./ProductManagement";
+import UserManagement from "./UserManagement";
 
 const Home: React.FC = () => {
   return (
-    <Container>
-      <h1>Homepage 🥳</h1>
+    <Container >
+      <ProductManagement />
+      <UserManagement />
     </Container>
   );
 };

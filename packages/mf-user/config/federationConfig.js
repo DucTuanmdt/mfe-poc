@@ -1,17 +1,15 @@
 const deps = require("../package.json").dependencies;
 
-const productDomain = process.env.PRODUCT_DOMAIN;
-const userDomain = process.env.USER_DOMAIN;
+const domain = process.env.PORTAL_DOMAIN;
 
 module.exports = {
-  name: "mfPortal",
+  name: "mfUser",
   filename: "remoteEntry.js",
   exposes: {
-    "./Navbar": "./src/components/common/Navbar.tsx",
+    "./UserApp": "./src/shared/UserAppShared.tsx",
   },
   remotes: {
-    mfProduct: `mfProduct@${productDomain}remoteEntry.js`,
-    mfUser: `mfUser@${userDomain}remoteEntry.js`,
+    mfPortal: `mfPortal@${domain}remoteEntry.js`,
   },
   shared: {
     react: {
